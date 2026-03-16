@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
 :root {
+  /* Amazon Light Theme Palette */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0F1111; /* Amazon's primary text color */
+  --accent-orange: #FF9900;
+  --amazon-blue: #232f3e;
+  --section-bg: #f3f3f3; /* Light grey for product detail sections */
+  --link-color: #007185;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-amazon-orange: var(--accent-orange);
+  --color-amazon-dark: var(--amazon-blue);
+  --color-amazon-link: var(--link-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Amazon Dark Mode (Pro/Premium feel) */
+    --background: #0F1111;
+    --foreground: #ffffff;
+    --section-bg: #1A1A1A;
+    --link-color: #00A8E1;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Amazon uses a very specific stack, prioritizing Ember or Arial */
+  font-family: "Amazon Ember", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom utility for Amazon-style links */
+a, .link-style {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover, .link-style:hover {
+  color: #C45500; /* Amazon's hover orange */
+  text-decoration: underline;
 }
